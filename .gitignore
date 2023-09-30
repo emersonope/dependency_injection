@@ -16,6 +16,8 @@ local.properties
 .loadpath
 .recommenders
 .mvn
+mvnw
+mvnw.cmd
 
 ### STS ###
 .apt_generated
