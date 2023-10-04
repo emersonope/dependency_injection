@@ -1,0 +1,4 @@
+Book;autor0;35;888;HarryPotter;writer;true
+Book;autor1;37;898;HarryPotter1;writer1;false
+Book;autor2;38;899;HarryPotter2;writer2;true
+Book;autor3;39;900;HarryPotter3;writer3;false

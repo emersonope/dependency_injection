@@ -3,11 +3,17 @@ package br.edu.infnet.libraryapp.model.business;
 public class Cd extends LibraryItem {
 	
 	private int id;
+	private String cdName;
+	private int numberOfTracks;
 	private String director;
 	private boolean availableCd;
+	
+	public Cd() {};
 
-	public Cd(String name, String autor, float value, String director, boolean availableCd) {
-		super(name, autor, value);
+	public Cd(String type, String autor, float value, int codeNumber, String cdName, int numberOfTracks, String director, boolean availableCd) {
+		super(type, autor, value, codeNumber);
+		this.cdName = cdName;
+		this.numberOfTracks = numberOfTracks;
 		this.director = director;
 		this.availableCd = availableCd;
 	}
@@ -15,13 +21,12 @@ public class Cd extends LibraryItem {
 	@Override
 	public String toString() {
 		return String.format(
-				"%s;%s;%s",
+				"%s;%s;%d%s;%s",
 				super.toString(),
+				cdName,
+				numberOfTracks,
 				director,
 				availableCd		
 		);
-	}
-
-	
-	
+	}	
 }

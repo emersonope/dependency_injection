@@ -2,21 +2,26 @@ package br.edu.infnet.libraryapp.model.business;
 
 public class Book extends LibraryItem {
 	
-	private int id;
+//	private int id;
 	private String bookName;
+	private String writer;
 	private boolean availableBook;
 	
-	public Book(String name, String autor, float value, String lenderName, boolean activeLending) {
-		super(name, autor, value);
-		this.bookName = lenderName;
-		this.availableBook = activeLending;
+	public Book() {};
+
+	public Book(String type, String autor, float value, int codeNumber, String bookName, String writer, boolean availableBook) {
+		super(type, autor, value, codeNumber);
+		this.bookName = bookName;
+		this.writer = writer;
+		this.availableBook = availableBook;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%s;%s;%s", 
+		return String.format("%s;%s;%s;%s", 
 				super.toString(),
 				bookName, 
+				writer,
 				availableBook
 		);
 	}

@@ -1,0 +1,8 @@
+L;Pedido do Emerson;Emerson Pereira;12365489789;emersonggg@gmail.com
+B;Book;autor0;35;888;HarryPotter;writer;true
+C;CD;Sandy;10;888;Flores;11;Diretor;true
+D;DVD;Mariana Rios;20;999;Show no rio;Mariana Rios;true
+L;Pedido do Gerismundo;Gerismundo Gesraldo;89756423102;gesrismundo@gmail.com
+B;Book;autor0;35;888;HarryPotter;writer;true
+C;CD;Luan Santana;8;778;Primavera;11;Diretor;true
+D;DVD;Selena Gomez;24;776;Show no rio;Selena diretora;true
