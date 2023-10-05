@@ -25,4 +25,28 @@ public class Book extends LibraryItem {
 				availableBook
 		);
 	}
+
+	public String getBookName() {
+		return bookName;
+	}
+
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	public boolean isAvailableBook() {
+		return availableBook;
+	}
+
+	public void setAvailableBook(boolean availableBook) {
+		this.availableBook = availableBook;
+	}
 }

@@ -2,6 +2,7 @@ package br.edu.infnet.libraryapp;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,15 +12,22 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.libraryapp.model.business.Book;
+import br.edu.infnet.libraryapp.model.business.ReaderApplicant;
 
 @Order(1)
 @Component
 public class BookLoader implements ApplicationRunner {
+	
+	Map<Integer, Book> bookMap;
+	
+	public Collection<Book> getBook(){
+		return bookMap.values();
+	};
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		Map<Integer, Book> bookMap = new HashMap<Integer, Book>();
+		bookMap = new HashMap<Integer, Book>();
 		
 		FileReader file = new FileReader("files/book.txt");
 		BufferedReader reader = new BufferedReader(file);

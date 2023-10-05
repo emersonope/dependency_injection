@@ -16,26 +16,24 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>	
 
 	<div class="container-fluid mt-3">
-		<h3>User List</h3>
+		<h3>Reader Applicant List</h3>
 
 		<h2>Domain Classes</h2>
 		<p>LibraryItem</p>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Field</th>
-					<th>Type</th>
-					<th>Notes</th>
+					<th>Name</th>
+					<th>Email</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="r" items="${listOfReadersApplicant}">
+				<c:forEach var="u" items="${listOfUser}">
 					<tr>
-						<td>${r.name}</td>
-						<td>${r.cpf}</td>
-						<td>${r.email}</td>
-						<td><a href="/readerapplicant/${r.cpf}/delete">delete</a></td>
+						<td>${u.name}</td>
+						<td>${u.email}</td>
+						<td><a href="/user/${u.cpf}/delete">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
