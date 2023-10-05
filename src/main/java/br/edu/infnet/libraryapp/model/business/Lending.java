@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Lending  {
 	
-	private int id;
+//	private int id;
 	private String description;
 	private LocalDateTime data;
 	private boolean web;

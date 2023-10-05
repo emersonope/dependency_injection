@@ -2,7 +2,7 @@ package br.edu.infnet.libraryapp.model.business;
 
 public class Cd extends LibraryItem {
 	
-	private int id;
+//	private int id;
 	private String cdName;
 	private int numberOfTracks;
 	private String director;

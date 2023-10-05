@@ -2,32 +2,25 @@ package br.edu.infnet.libraryapp;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.libraryapp.controller.BookController;
 import br.edu.infnet.libraryapp.model.business.Book;
-import br.edu.infnet.libraryapp.model.business.ReaderApplicant;
 
 @Order(1)
 @Component
 public class BookLoader implements ApplicationRunner {
 	
-	Map<Integer, Book> bookMap;
-	
-	public Collection<Book> getBook(){
-		return bookMap.values();
-	};
+	@Autowired
+	private BookController bookController;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
-		bookMap = new HashMap<Integer, Book>();
 		
 		FileReader file = new FileReader("files/book.txt");
 		BufferedReader reader = new BufferedReader(file);
@@ -49,14 +42,10 @@ public class BookLoader implements ApplicationRunner {
 					Boolean.valueOf(fields[6])
 					);
 			
-			bookMap.put(rentedBook.getCodeNumber(), rentedBook);
+			bookController.insert(rentedBook);
 			
 			line = reader.readLine();
 			
-		}
-		
-		for(Book book : bookMap.values()) {
-			System.out.println("[Book] successfully rented: " + book);
 		}
 		
 		reader.close();

@@ -2,7 +2,7 @@ package br.edu.infnet.libraryapp.model.business;
 
 public abstract class LibraryItem {
 	
-	private int id;
+//	private int id;
 	private String type;
 	private String autor;
 	private float value;
