@@ -36,7 +36,7 @@
 						<td>${l.web}</td>
 						<td>${l.readerApplicant}</td>
 						<td>${l.libraryItems}</td>
-						<td><a href="/lending/${c.cpf}/delete">delete</a></td>
+						<td><a href="/lending/${c.data}/delete">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -31,7 +31,7 @@
 					<tr>
 						<td>${u.name}</td>
 						<td>${u.email}</td>
-						<td><a href="/user/${u.cpf}/delete">delete</a></td>
+						<td><a href="/user/${u.email}/delete">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

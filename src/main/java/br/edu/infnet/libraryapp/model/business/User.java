@@ -30,5 +30,12 @@ public class User {
 
 	public void setPswd(String pswd) {
 		this.pswd = pswd;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + "]";
 	};	
+	
+	
 }
