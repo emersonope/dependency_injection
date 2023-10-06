@@ -9,9 +9,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.libraryapp.controller.BookController;
 import br.edu.infnet.libraryapp.controller.DvdController;
-import br.edu.infnet.libraryapp.model.business.Book;
 import br.edu.infnet.libraryapp.model.business.Dvd;
 
 @Order(1)

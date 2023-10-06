@@ -14,16 +14,15 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>	
 
 	<div class="container-fluid mt-3">
-		<h3>User List</h3>
-
-		<h2>Domain Classes</h2>
-		<p>LibraryItem</p>
+		<h3> Applicant List</h3>
+		<td><a href="/readerapplicant/registration">New</a></td>
+		<h4></h4>
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Field</th>
-					<th>Type</th>
-					<th>Notes</th>
+					<th>Name</th>
+					<th>CPF</th>
+					<th>email</th>
 					<th></th>
 				</tr>
 			</thead>

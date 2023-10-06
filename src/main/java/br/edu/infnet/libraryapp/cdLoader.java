@@ -10,7 +10,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.libraryapp.controller.CdController;
-import br.edu.infnet.libraryapp.controller.DvdController;
 import br.edu.infnet.libraryapp.model.business.Cd;
 
 @Order(1)

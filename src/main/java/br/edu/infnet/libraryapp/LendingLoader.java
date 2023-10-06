@@ -2,11 +2,10 @@ package br.edu.infnet.libraryapp;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -20,9 +19,6 @@ import br.edu.infnet.libraryapp.model.business.Dvd;
 import br.edu.infnet.libraryapp.model.business.Lending;
 import br.edu.infnet.libraryapp.model.business.LibraryItem;
 import br.edu.infnet.libraryapp.model.business.ReaderApplicant;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Order(5)
 @Component

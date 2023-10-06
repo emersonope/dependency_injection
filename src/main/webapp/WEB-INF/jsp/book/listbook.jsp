@@ -13,10 +13,8 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>	
 
 	<div class="container-fluid mt-3">
-		<h3>Reader Applicant List</h3>
-
-		<h2>Domain Classes</h2>
-		<p>LibraryItem</p>
+		<h3>Book List</h3>
+		<td><a href="/book/registration">New</a></td>
 		<table class="table table-striped">
 			<thead>
 				<tr>
