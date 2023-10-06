@@ -28,5 +28,37 @@ public class Cd extends LibraryItem {
 				director,
 				availableCd		
 		);
+	}
+
+	public String getCdName() {
+		return cdName;
+	}
+
+	public void setCdName(String cdName) {
+		this.cdName = cdName;
+	}
+
+	public int getNumberOfTracks() {
+		return numberOfTracks;
+	}
+
+	public void setNumberOfTracks(int numberOfTracks) {
+		this.numberOfTracks = numberOfTracks;
+	}
+
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
+	}
+
+	public boolean isAvailableCd() {
+		return availableCd;
+	}
+
+	public void setAvailableCd(boolean availableCd) {
+		this.availableCd = availableCd;
 	}	
 }

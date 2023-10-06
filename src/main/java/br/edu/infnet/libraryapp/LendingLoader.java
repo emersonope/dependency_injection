@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.libraryapp.controller.LendingController;
 import br.edu.infnet.libraryapp.model.business.Book;
 import br.edu.infnet.libraryapp.model.business.Cd;
 import br.edu.infnet.libraryapp.model.business.Dvd;
@@ -22,101 +24,76 @@ import br.edu.infnet.libraryapp.model.business.ReaderApplicant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 @Order(5)
 @Component
 public class LendingLoader implements ApplicationRunner {
 	
-	private static final Logger logger = LoggerFactory.getLogger(LendingLoader.class);
+	@Autowired
+	private LendingController lendingController;
 
+	private static final Logger logger = LoggerFactory.getLogger(LendingLoader.class);
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
-		Map<LocalDateTime, Lending> lendingMap = new HashMap<LocalDateTime, Lending>();
-		
+
 		FileReader file = new FileReader("files/lending.txt");
 		BufferedReader reader = new BufferedReader(file);
-		
+
 		String line = reader.readLine();
 		String[] fields = null;
 		Lending lending = null;
-		
-while(line != null) {
-			
+
+		while (line != null) {
+
 			fields = line.split(";");
-			
-			switch(fields[0]) {
+
+			switch (fields[0]) {
 			case "L":
 				logger.info("Iniciando execução de L " + getClass().getSimpleName());
-				lending = new Lending(
-						fields[1],
-						new ReaderApplicant(fields[2], fields[3], fields[4]), 
-						new ArrayList<LibraryItem>()
-						);
-				lendingMap.put(lending.getData(), lending);
+				lending = new Lending(fields[1], new ReaderApplicant(fields[2], fields[3], fields[4]),
+						new ArrayList<LibraryItem>());
+//				lendingController.put(lending.getData(), lending);
+				lendingController.insert(lending);
 				logger.info("Finalizando execução de L " + getClass().getSimpleName());
-				
+
 				break;
 			case "B":
-				 logger.info("Iniciando execução de B " + getClass().getSimpleName());
-				Book book = new Book(
-						fields[1],
-						fields[2], 
-						Float.valueOf(fields[3]), 
-						Integer.valueOf(fields[4]), 
-						fields[5], 
-						fields[6], 
-						Boolean.valueOf(fields[7])
-				);
-				
-				lending.getLibraryItems().add(book); 
-				
-				 logger.info("Finalizando execução de B " + getClass().getSimpleName());
-				
+				logger.info("Iniciando execução de B " + getClass().getSimpleName());
+				Book book = new Book(fields[1], fields[2], Float.valueOf(fields[3]), Integer.valueOf(fields[4]),
+						fields[5], fields[6], Boolean.valueOf(fields[7]));
+
+				lending.getLibraryItems().add(book);
+
+				logger.info("Finalizando execução de B " + getClass().getSimpleName());
+
 				break;
-				
+
 			case "C":
 				logger.info("Iniciando execução de C " + getClass().getSimpleName());
-				Cd cd = new Cd(
-						fields[1], 
-						fields[2], 
-						Float.valueOf(fields[3]), 
-						Integer.valueOf(fields[4]), 
-						fields[5], 
-						Integer.valueOf(fields[6]), 
-						fields[7], 
-						Boolean.valueOf(fields[8])
-						);
-				
-				lending.getLibraryItems().add(cd); 
+				Cd cd = new Cd(fields[1], fields[2], Float.valueOf(fields[3]), Integer.valueOf(fields[4]), fields[5],
+						Integer.valueOf(fields[6]), fields[7], Boolean.valueOf(fields[8]));
+
+				lending.getLibraryItems().add(cd);
 				logger.info("Finalizando execução de C " + getClass().getSimpleName());
 				break;
-			
+
 			case "D":
 				logger.info("Iniciando execução de D " + getClass().getSimpleName());
-				Dvd dvd = new Dvd(
-						fields[1], 
-						fields[2], 
-						Float.valueOf(fields[3]), 
-						Integer.valueOf(fields[4]), 
-						fields[5], 
-						fields[6], 
-						Boolean.valueOf(fields[7])
-						);
-				
+				Dvd dvd = new Dvd(fields[1], fields[2], Float.valueOf(fields[3]), Integer.valueOf(fields[4]), fields[5],
+						fields[6], Boolean.valueOf(fields[7]));
+
 				lending.getLibraryItems().add(dvd);
 				logger.info("Finalizando execução de D " + getClass().getSimpleName());
 				break;
-			
-		}
+
+			}
 			line = reader.readLine();
 		}
-		
-		for(Lending l : lendingMap.values()) {
-			System.out.println("[Lending] successfully rented: " + l);
-		}
-		
+
+//		for (Lending l : lendingMap.values()) {
+//			System.out.println("[Lending] successfully rented: " + l);
+//		}
+
 		reader.close();
 	}
 

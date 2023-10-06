@@ -26,7 +26,29 @@ public class Dvd extends LibraryItem {
 				availableDvd
 		);
 	}
-	
-	
+
+	public String getDvdName() {
+		return dvdName;
+	}
+
+	public void setDvdName(String dvdName) {
+		this.dvdName = dvdName;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+	public boolean isAvailableDvd() {
+		return availableDvd;
+	}
+
+	public void setAvailableDvd(boolean availableDvd) {
+		this.availableDvd = availableDvd;
+	}
 
 }

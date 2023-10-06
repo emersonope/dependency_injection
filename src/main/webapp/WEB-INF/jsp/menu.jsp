@@ -1,29 +1,40 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="/">Library App</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			data-bs-target="#collapsibleNavbar">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link"
-					href="/readerapplicant/list">APPLICANT</a></li>
-				<li class="nav-item"><a class="nav-link" href="/book/listbook">BOOK</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">CD</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">DVD</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">LENDING</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/user/registration"><span class="glyphicon glyphicon-user"></span>
-						Sign Up</a></li>
-				<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>
-						Login ${username}</a></li>
-			</ul>
-		</div>
-	</div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">AppPedido</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+	
+	      <li class="nav-item">
+	        <a class="nav-link" href="/readerapplicant/list">APPLICANT</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/book/listbook">BOOK</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/cd/listcd">CD</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/dvd/listdvd">DVD</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/lending/list">LENDING</a>
+	      </li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <c:if test="${empty user}">
+	      <li><a href="/user/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>      
+	      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </c:if>
+      
+      <c:if test="${not empty user}">
+      	  <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout ${user.nome}</a></li>
+      </c:if>
+    </ul>
+  </div>
 </nav>

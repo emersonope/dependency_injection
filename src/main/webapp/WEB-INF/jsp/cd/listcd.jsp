@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html>
 
@@ -8,9 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Page</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>	
@@ -20,22 +17,24 @@
 
 		<h2>Domain Classes</h2>
 		<p>LibraryItem</p>
-		<table class="table">
+		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Book Name</th>
-					<th>Writer</th>
-					<th>Is Available</th>
+					<th>Cd Name</th>
+					<th>Number Of Tracks</th>
+					<th>Director</th>
+					<th>Availability</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="b" items="${listOfBook}">
+				<c:forEach var="c" items="${listOfCd}">
 					<tr>
-						<td>${b.bookName}</td>
-						<td>${b.writer}</td>
-						<td>${b.availableBook}</td>
-						<td><a href="/book/${b.codeNumber}/delete">delete</a></td>
+						<td>${c.cdName}</td>
+						<td>${c.numberOfTracks}</td>
+						<td>${c.director}</td>
+						<td>${c.availableCd}</td>
+						<td><a href="/cd/${c.codeNumber}/delete">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

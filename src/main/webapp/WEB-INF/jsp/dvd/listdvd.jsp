@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
- 
+
 <!DOCTYPE html>
 
 <html>
@@ -20,23 +20,19 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Description</th>
-					<th>Data</th>
-					<th>Web</th>
-					<th>Applicant</th>
-					<th>LibraryItems</th>
+					<th>Dvd Name</th>
+					<th>Artist</th>
+					<th>Available Dvd</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="l" items="${listOfLending}">
+				<c:forEach var="d" items="${listOfDvd}">
 					<tr>
-						<td>${l.description}</td>
-						<td>${l.data}</td>
-						<td>${l.web}</td>
-						<td>${l.readerApplicant}</td>
-						<td>${l.libraryItems}</td>
-						<td><a href="/lending/${c.cpf}/delete">delete</a></td>
+						<td>${d.dvdName}</td>
+						<td>${d.artist}</td>
+						<td>${d.availableDvd}</td>
+						<td><a href="/dvd/${d.codeNumber}/delete">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
