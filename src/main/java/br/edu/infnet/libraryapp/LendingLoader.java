@@ -19,13 +19,14 @@ import br.edu.infnet.libraryapp.model.business.Dvd;
 import br.edu.infnet.libraryapp.model.business.Lending;
 import br.edu.infnet.libraryapp.model.business.LibraryItem;
 import br.edu.infnet.libraryapp.model.business.ReaderApplicant;
+import br.edu.infnet.libraryapp.model.service.LendingService;
 
 @Order(5)
 @Component
 public class LendingLoader implements ApplicationRunner {
 	
 	@Autowired
-	private LendingController lendingController;
+	private LendingService lendingService;
 
 	private static final Logger logger = LoggerFactory.getLogger(LendingLoader.class);
 
@@ -49,7 +50,7 @@ public class LendingLoader implements ApplicationRunner {
 				lending = new Lending(fields[1], new ReaderApplicant(fields[2], fields[3], fields[4]),
 						new ArrayList<LibraryItem>());
 //				lendingController.put(lending.getData(), lending);
-				lendingController.insert(lending);
+				lendingService.insert(lending);
 				logger.info("Finalizando execução de L " + getClass().getSimpleName());
 
 				break;

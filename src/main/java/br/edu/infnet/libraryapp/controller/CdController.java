@@ -1,46 +1,46 @@
 package br.edu.infnet.libraryapp.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.libraryapp.model.business.Cd;
+import br.edu.infnet.libraryapp.model.service.CdService;
 
 @Controller
 public class CdController {
 	
-	Map<Integer, Cd> cdMap = new HashMap<Integer, Cd>();
-	
-	public Collection<Cd> getCd(){
-		return cdMap.values();
-	};
-	
-	public void insert(Cd cd) {
-		cdMap.put(cd.getCodeNumber(), cd);
-		System.out.println("[Cd] successfully rented: " + cd);
-	};
-	
-	public void delete(int codeNumber) {
-		cdMap.remove(codeNumber);
-	};
+	@Autowired
+	private CdService cdService;
 
 	@GetMapping(value = "/cd/listcd")
 	public String bookLoaderScreen(Model model) {
 				
-		model.addAttribute("listOfCd", getCd());
+		model.addAttribute("listOfCd", cdService.getCd());
 		
 		return "cd/listcd";
+	};
+	
+	@GetMapping(value = "/cd/registration")
+	public String cdSignUpScreen() {
+
+		return "cd/registration";
+	};
+	
+	@PostMapping(value="/cd/insert")
+	public String insert(Cd cd) {
+		
+		cdService.insert(cd);
+		return "redirect:/cd/listcd";
 	};
 	
 	@GetMapping(value = "/cd/{codeNumber}/delete")
 	public String deleteApplicantByCpf(@PathVariable int codeNumber) {
 
-		delete(codeNumber);
+		cdService.delete(codeNumber);
 
 		return "redirect:/cd/listcd";
 	};

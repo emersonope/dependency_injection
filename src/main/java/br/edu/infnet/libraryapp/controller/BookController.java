@@ -25,7 +25,7 @@ public class BookController {
 	};
 	
 	@GetMapping(value = "/book/registration")
-	public String readerApplicantSignUpScreen() {
+	public String BookSignUpScreen() {
 
 		return "book/registration";
 	};
@@ -38,7 +38,7 @@ public class BookController {
 	};
 	
 	@GetMapping(value = "/book/{codeNumber}/delete")
-	public String deleteApplicantByCpf(@PathVariable int codeNumber) {
+	public String deleteBookByCpf(@PathVariable int codeNumber) {
 
 		bookService.delete(codeNumber);
 
