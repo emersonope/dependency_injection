@@ -2,11 +2,20 @@ package br.edu.infnet.libraryapp.model.business;
 
 public class User {
 	
+	private Integer id;
 	private String name;
 	private String email;
 	private String pswd;
 	
 	public User() {}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -35,7 +44,5 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [name=" + name + "]";
-	};	
-	
-	
+	};		
 }

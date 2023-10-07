@@ -37,10 +37,10 @@ public class ReaderApplicantController {
 		return "redirect:/readerapplicant/list";
 	};
 	
-	@GetMapping(value = "/readerapplicant/{cpf}/delete")
-	public String deleteApplicantByCpf(@PathVariable String cpf) {
+	@GetMapping(value = "/readerapplicant/{id}/delete")
+	public String deleteApplicantByCpf(@PathVariable Integer id) {
 
-		readerApplicantService.delete(cpf);
+		readerApplicantService.delete(id);
 
 		return "redirect:/readerapplicant/list";
 	};
