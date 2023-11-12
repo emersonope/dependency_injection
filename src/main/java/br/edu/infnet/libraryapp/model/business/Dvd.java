@@ -1,7 +1,16 @@
 package br.edu.infnet.libraryapp.model.business;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Dvd extends LibraryItem {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String dvdName;
 	private String artist;
 	private boolean availableDvd;
@@ -27,6 +36,14 @@ public class Dvd extends LibraryItem {
 		);
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getDvdName() {
 		return dvdName;
 	}
@@ -50,5 +67,4 @@ public class Dvd extends LibraryItem {
 	public void setAvailableDvd(boolean availableDvd) {
 		this.availableDvd = availableDvd;
 	}
-
 }

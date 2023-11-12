@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class ReaderApplicant {
@@ -14,6 +16,9 @@ public class ReaderApplicant {
 	private String name;
 	private String cpf;
 	private String email;
+	@ManyToOne
+	@JoinColumn(name = "idUer")
+	private User user;
 	
 	public ReaderApplicant() {};
 	
@@ -63,6 +68,14 @@ public class ReaderApplicant {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

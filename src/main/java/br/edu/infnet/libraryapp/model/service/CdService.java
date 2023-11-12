@@ -1,29 +1,32 @@
 package br.edu.infnet.libraryapp.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.libraryapp.model.business.Cd;
+import br.edu.infnet.libraryapp.model.repository.CdRepository;
 
 @Service
 public class CdService {
 	
-	Map<Integer, Cd> cdMap = new HashMap<Integer, Cd>();
+	@Autowired
+	private CdRepository cdRepository;
 	
 	public Collection<Cd> getCd(){
-		return cdMap.values();
+		
+		return (Collection<Cd>) cdRepository.findAll();
 	};
 	
 	public void insert(Cd cd) {
-		cdMap.put(cd.getCodeNumber(), cd);
-		System.out.println("[Cd] successfully rented: " + cd);
+		
+		cdRepository.save(cd);
 	};
 	
-	public void delete(int codeNumber) {
-		cdMap.remove(codeNumber);
+	public void delete(Integer id) {
+		
+		cdRepository.deleteById(id);
 	};
 
 }

@@ -20,6 +20,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<td>ID</td>
 					<th>Dvd Name</th>
 					<th>Artist</th>
 					<th>Available Dvd</th>
@@ -29,10 +30,11 @@
 			<tbody>
 				<c:forEach var="d" items="${listOfDvd}">
 					<tr>
+						<td>${d.id}</td>
 						<td>${d.dvdName}</td>
 						<td>${d.artist}</td>
 						<td>${d.availableDvd}</td>
-						<td><a href="/dvd/${d.codeNumber}/delete">delete</a></td>
+						<td><a href="/dvd/${d.id}/delete">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

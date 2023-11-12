@@ -12,7 +12,6 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.libraryapp.controller.LendingController;
 import br.edu.infnet.libraryapp.model.business.Book;
 import br.edu.infnet.libraryapp.model.business.Cd;
 import br.edu.infnet.libraryapp.model.business.Dvd;

@@ -1,8 +1,16 @@
 package br.edu.infnet.libraryapp.model.business;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Cd extends LibraryItem {
 	
-//	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String cdName;
 	private int numberOfTracks;
 	private String director;
@@ -28,6 +36,14 @@ public class Cd extends LibraryItem {
 				director,
 				availableCd		
 		);
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getCdName() {
@@ -60,5 +76,6 @@ public class Cd extends LibraryItem {
 
 	public void setAvailableCd(boolean availableCd) {
 		this.availableCd = availableCd;
-	}	
+	}
+
 }

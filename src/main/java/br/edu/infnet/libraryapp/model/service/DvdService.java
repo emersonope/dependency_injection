@@ -1,29 +1,33 @@
 package br.edu.infnet.libraryapp.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.libraryapp.model.business.Dvd;
+import br.edu.infnet.libraryapp.model.repository.DvdRepository;
 
 @Service
 public class DvdService {
 	
-	Map<Integer, Dvd> dvdMap = new HashMap<Integer, Dvd>();
+	@Autowired
+	private DvdRepository dvdRepository; 
 	
 	public Collection<Dvd> getBook(){
-		return dvdMap.values();
+		
+		return (Collection<Dvd>) dvdRepository.findAll();
 	};
 	
 	public void insert(Dvd dvd) {
-		dvdMap.put(dvd.getCodeNumber(), dvd);
-		System.out.println("[DVD] successfully rented: " + dvd);
+		
+		dvdRepository.save(dvd);
 	};
 	
-	public void delete(int codeNumber) {
-		dvdMap.remove(codeNumber);
+	public void delete(Integer id) {
+		
+		dvdRepository.deleteById(id);
+		
 	};
 
 }

@@ -18,6 +18,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<td>ID</td>
 					<th>Book Name</th>
 					<th>Writer</th>
 					<th>Is Available</th>
@@ -27,10 +28,11 @@
 			<tbody>
 				<c:forEach var="b" items="${listOfBook}">
 					<tr>
+						<td>${b.id}</td>
 						<td>${b.bookName}</td>
 						<td>${b.writer}</td>
 						<td>${b.availableBook}</td>
-						<td><a href="/book/${b.codeNumber}/delete">delete</a></td>
+						<td><a href="/book/${b.id}/delete">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

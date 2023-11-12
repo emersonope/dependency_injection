@@ -20,6 +20,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<td>ID</td>
 					<th>Cd Name</th>
 					<th>Number Of Tracks</th>
 					<th>Director</th>
@@ -30,11 +31,12 @@
 			<tbody>
 				<c:forEach var="c" items="${listOfCd}">
 					<tr>
+						<td>${c.id}</td>
 						<td>${c.cdName}</td>
 						<td>${c.numberOfTracks}</td>
 						<td>${c.director}</td>
 						<td>${c.availableCd}</td>
-						<td><a href="/cd/${c.codeNumber}/delete">delete</a></td>
+						<td><a href="/cd/${c.id}/delete">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

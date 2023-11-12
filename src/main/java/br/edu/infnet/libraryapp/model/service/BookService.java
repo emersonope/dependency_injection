@@ -1,28 +1,31 @@
 package br.edu.infnet.libraryapp.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.libraryapp.model.business.Book;
+import br.edu.infnet.libraryapp.model.repository.BookRepository;
 
 @Service
 public class BookService {
-
-	Map<Integer, Book> bookMap = new HashMap<Integer, Book>();
+	
+	@Autowired
+	private BookRepository bookRepository;
 	
 	public Collection<Book> getBook(){
-		return bookMap.values();
-	};
+		
+		return (Collection<Book>) bookRepository.findAll()
+;	};
 	
 	public void insert(Book book) {
-		bookMap.put(book.getCodeNumber(), book);
-		System.out.println("[Book] successfully rented: " + book);
+		
+		bookRepository.save(book);
 	};
 	
-	public void delete(int codeNumber) {
-		bookMap.remove(codeNumber);
+	public void delete(Integer id) {
+		
+		bookRepository.deleteById(id);
 	};
 }

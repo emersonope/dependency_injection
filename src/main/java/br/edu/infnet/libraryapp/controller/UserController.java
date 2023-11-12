@@ -54,9 +54,9 @@ public class UserController {
 	};
 
 	@GetMapping(value = "/user/{email}/delete")
-	public String delete(@PathVariable String email) {
+	public String delete(@PathVariable Integer id) {
 
-		userService.delete(email);
+		userService.delete(id);
 
 		return "redirect:/user/list";
 	};
